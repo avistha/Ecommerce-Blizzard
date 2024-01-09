@@ -1,0 +1,14 @@
+{% extends 'frontend/master/master.html' %}
+
+{% block content %}
+
+    <section id="form-details">
+        <form action="" method="post">
+            <h2>Checkout</h2>
+            {% csrf_token %}
+            {{ orderForm.as_p }}
+            <button class="normal">Confirm</button>
+        </form>
+    </section>
+
+{% endblock %}

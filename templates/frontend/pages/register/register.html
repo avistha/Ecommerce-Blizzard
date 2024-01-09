@@ -1,0 +1,20 @@
+{% extends 'frontend/master/master.html' %}
+
+{% block content %}
+
+    <section id="form-details">
+        <form action="{% url 'register' %}" method="post">
+            <h2>Register</h2>
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-success">
+                        {{ message }}
+                {% endfor %}
+            {% endif %}
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="normal" type="Submit" action="Login">Register</button>
+        </form>
+    </section>
+
+{% endblock %}

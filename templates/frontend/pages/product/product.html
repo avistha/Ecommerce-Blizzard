@@ -1,0 +1,55 @@
+{% extends 'frontend/master/master.html' %}
+
+{% block content %}
+
+    <section id="page-header">
+        <h2>#stayhome</h2>
+        <p>Save more with coupons and upto 70% off</p>
+    </section>
+
+    <section id="featured" class="section-p1">
+        <div class="pro-container">
+            {% for product in productsData %}
+            <div class="pro">
+                <a href="{% url 'product-details' product.slug %}">
+                    {% if product.image %}
+                        <img src="{{ product.image.url }}" alt="">
+                    {% endif %}
+                </a>
+                <div class="des">
+                    <span>{{ product.category}}</span>
+                    <h5>{{ product.name }}</h5>
+                    <h4>Rs.{{ product.price}}</h4>
+                </div>
+                <a href="{% url 'cart_add' product.id %}"><i class="fa-solid fa-cart-shopping cart"></i></a>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+        <section id="pagination" class="section-p1">
+            <div class="pagination">
+                <span class="step-links">
+                    {% if productsData.has_previous %}
+                        <a href="?page={{ productsData.previous_page_number }}">&laquo; previous</a>
+                    {% endif %}
+                    <a href="">{{ productsData.number }}</a>
+                    {% if productsData.has_next %}
+                        <a href="?page={{ productsData.next_page_number }}">next &raquo;</a>
+                    {% endif %}
+                </span>
+            </div>
+        </section>
+
+    <section id="newsletter" class="section-p1 section-m1">
+        <div class="newstext">
+            <h4>Sign Up for Newsletters</h4>
+            <p>Get E-mail updates about our latest shop and <span>special offers.</span></p>
+        </div>
+        <div class="form">
+            <input type="text" placeholder="Your E-mail Address">
+            <button class="normal">Sign Up</button>
+        </div>
+    </section>
+
+{% endblock %}

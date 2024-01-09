@@ -1,0 +1,21 @@
+{% extends 'frontend/master/master.html' %}
+
+{% block content %}
+
+    <section id="form-details">
+        <form action="{% url 'login' %}" method="post">
+            <h2>Login</h2>
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-success">
+                        {{ message }}
+                {% endfor %}
+            {% endif %}
+            {% csrf_token %}
+            <input name="username" type="text" placeholder="Username">
+            <input name="password" type="password" placeholder="Password">
+            <button class="normal" type="Submit" action="Login">Login</button>
+        </form>
+    </section>
+
+{% endblock %}

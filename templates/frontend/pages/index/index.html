@@ -1,0 +1,210 @@
+{% extends 'frontend/master/master.html' %}
+
+{% block content %}
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-success">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <section id="banner">
+        <h4>Trade-in-Offer</h4>
+        <h2>Super Value Deals</h2>
+        <h1>On all Products</h1>
+        <p>Save more with coupons and upto 70% off</p>
+        <button>Shop Now</button>
+    </section>
+
+    <section id="featured" class="section-p1">
+        <h2>Featured Products</h2>
+        <p>Latest Collection</p>
+        <div class="pro-container">
+            {% for product in productsData %} 
+            <div class="pro">
+            <a href="{% url 'product-details' product.slug %}">
+                {% if product.image %}
+                    <img src="{{ product.image.url }}" alt="">
+                {% endif %}
+            </a>
+            <div class="des">
+                <span>{{ product.category}}</span>
+                <h5>{{ product.name }}</h5>
+                <h4>Rs.{{ product.price}}</h4>
+            </div>
+            <a href="{% url 'cart_add' product.id %}"><i class="fa-solid fa-cart-shopping cart"></i></a>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section id="featured" class="section-p1">
+        <h2>Newest Additions</h2>
+        <p>Flagship Phones</p>
+        <div class="pro-container">
+            {% for product in productsData %} 
+            <div class="pro">
+            <a href="{% url 'product-details' product.slug %}">
+                {% if product.image %}
+                    <img src="{{ product.image.url }}" alt="">
+                {% endif %}
+            </a>
+            <div class="des">
+                <span>{{ product.category}}</span>
+                <h5>{{ product.name }}</h5>
+                <h4>Rs.{{ product.price}}</h4>
+            </div>
+            <a href="#"><i class="fa-solid fa-cart-shopping cart"></i></a>
+            </div>
+            {% endfor %}
+        </div>
+        {% comment %} <div class="pro-container">
+            <div class="pro">
+                <img src="" alt="">
+                <div class="des">
+                    <span>iphone</span>
+                    <h5>Iphone X</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.100000</h4>
+                </div>
+                <a href="#"><i class="fa-solid fa-shopping-cart cart"></i></a>
+            </div>
+            <div class="pro">
+                <img src="" alt="">
+                <div class="des">
+                    <span>iphone</span>
+                    <h5>Iphone X</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.100000</h4>
+                </div>
+                <a href="#"><i class="fa-solid fa-shopping-cart cart"></i></a>
+            </div>
+            <div class="pro">
+                <img src="" alt="">
+                <div class="des">
+                    <span>iphone</span>
+                    <h5>Iphone X</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.100000</h4>
+                </div>
+                <a href="#"><i class="fa-solid fa-shopping-cart cart"></i></a>
+            </div>
+            <div class="pro">
+                <img src="" alt="">
+                <div class="des">
+                    <span>iphone</span>
+                    <h5>Iphone X</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.100000</h4>
+                </div>
+                <a href="#"><i class="fa-solid fa-shopping-cart cart"></i></a>
+            </div>
+            <div class="pro">
+                <img src="" alt="">
+                <div class="des">
+                    <span>iphone</span>
+                    <h5>Iphone X</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.100000</h4>
+                </div>
+                <a href="#"><i class="fa-solid fa-shopping-cart cart"></i></a>
+            </div>
+            <div class="pro">
+                <img src="" alt="">
+                <div class="des">
+                    <span>iphone</span>
+                    <h5>Iphone X</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.100000</h4>
+                </div>
+                <a href="#"><i class="fa-solid fa-shopping-cart cart"></i></a>
+            </div>
+            <div class="pro">
+                <img src="" alt="">
+                <div class="des">
+                    <span>iphone</span>
+                    <h5>Iphone X</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.100000</h4>
+                </div>
+                <a href="#"><i class="fa-solid fa-shopping-cart cart"></i></a>
+            </div>
+            <div class="pro">
+                <img src="" alt="">
+                <div class="des">
+                    <span>iphone</span>
+                    <h5>Iphone X</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.100000</h4>
+                </div>
+                <a href="#"><i class="fa-solid fa-shopping-cart cart"></i></a>
+            </div>
+        </div> {% endcomment %}
+    </section>
+
+    <section id="newsletter" class="section-p1 section-m1">
+        <div class="newstext">
+            <h4>Sign Up for Newsletters</h4>
+            <p>Get E-mail updates about our latest shop and <span>special offers.</span></p>
+        </div>
+        <div class="form">
+            <input type="text" placeholder="Your E-mail Address">
+            <button class="normal">Sign Up</button>
+        </div>
+    </section>
+
+{% endblock %}
