@@ -126,11 +126,11 @@ body {
 
 /* home page */
 #banner{
-  background-image: url("");
+  background-image: url("/media/media/products/Galaxy_Z_Fold_4_4.jpg");
   height:90vh;
   width: 100%;
   background-size: cover;
-  background-position: top 25% rigth 0%;
+  background-position: top 25% right 0%;
   padding: 0 80px;
   display: flex;
   flex-direction: column;
@@ -341,7 +341,7 @@ footer .copyright{
 
 /* shop page */
 #page-header{
-  background-image: url("");
+  background-image: url("/media/media/banner/banner.png");
   width: 100%;
   height: 40vh;
   background-size: cover;
@@ -354,7 +354,7 @@ footer .copyright{
 
 #page-header h2,
 #page-header p{
-  color:black;
+  color:white;
 }
 
 #pagination{
@@ -434,7 +434,7 @@ footer .copyright{
 /* contact page */
 
 #contact-header{
-  background-image: url("banner.png");
+  background-image: url("/media/media/banner/banner.png");
   width: 100%;
   height: 40vh;
   background-size: cover;
