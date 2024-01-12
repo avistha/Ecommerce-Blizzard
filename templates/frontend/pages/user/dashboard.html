@@ -10,37 +10,30 @@
                     <thead>
                         <tr>
                             <td>S.No</td>
+                            <td>Product Items</td>
                             <td>Order Status</td>
                         </tr>
                     </thead>
         
                     <tbody>
                     {% for item in order_data %}
-                        {% comment %} <tr>
-                            <td><a href="{% url 'item_clear' key %}"><i class="fa-regular fa-circle-xmark"></i></a></td>
-                            <td><img src="{{value.image}}" alt=""></td>
-                            <td>{{value.name}}</td>
-                            <td>Rs. {{value.price}}</td>
-                            <td>
-                                <a href="{% url 'item_increment' value.product_id %}" class="btn btn-success">+</a>
-                                <input type="number" class="form-control" value="{{value.quantity}}">
-                                <a href="{% url 'item_decrement' value.product_id %}" class="btn btn-dark">-</a>
-                                
-                            </td>
-                            <td>Rs.{{ value.price|multiply:value.quantity }}</td>
-                        </tr> {% endcomment %}
                         <tr>
                             <td>{{ forloop.counter }}</td>
                             <td>
                                 <table>
                                     <tr>
                                         <td>Product Name</td>
-                                        <td>Status</td>
-                                        <!-- <td></td> -->
+                                        <td>Product Image</td>
                                     </tr>
                                     {% for pp in item.get_product_items %}
                                         <tr>
                                             <td>{{ pp.product.name }}</td>
+                                            <td>
+                                                <picture>
+                                                    <source srcset="{{ product.image.url }}">
+                                                    <img src="{{ pp.product.image.url }}" alt="Image Desc">
+                                                </picture>
+                                            </td>
                                         </tr>
                                     {% endfor %}
                                 </table>
